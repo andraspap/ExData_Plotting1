@@ -11,13 +11,21 @@ data$Time <- strptime(paste(data$Date,data$Time), "%d/%m/%Y %H:%M:%S")
 # Not need but let's convert the date to into a Date object
 data$Date <- as.Date(data$Date, "%d/%m/%Y")
 
+# Plotting function, called twice once to plot to the screen once to plot to png
+myplot <- function(data)
+{
+	# Assure that the right plot layout is set (needed for repeated calls of the assignment scripts)
+	par(mfrow = c(1,1))	
+	# Display the histogram of the global active power with the required parameters
+	hist(data$Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)" , ylab = "Frequency", col="red")
+}
+
 # Plot 1
-# Assure that the right plot layout is set (needed for repeated calls of the assignment scripts)
-par(mfrow = c(1,1))
+# dev.copy function has problems so let's plot twice
+# Plot on the screen
+myplot(data)
 
-# Display the histogram of the global active power with the required parameters
-hist(data$Global_active_power, main = "Global Active Power", xlab = "Global Active Power (kilowatts)" , ylab = "Frequency", col="red")
-
-# Export into a 480x480 png file
-dev.copy(png,"Plot1.png", width=480, height=480)
+# Plot into png
+png(file = "Plot1.png", width=480, height=480)
+myplot(data)
 dev.off()
