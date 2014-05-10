@@ -22,7 +22,7 @@ with(data, {
      with(data, points(Time,Sub_metering_2, col="red", type="l"))
      with(data, points(Time,Sub_metering_3, col="black", type="l"))
      # Add legend to the 3rd plot
-     legend("topright",border = "", pch = "-", bty = "n", col=c("blue","red","black"),legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))     
+     legend("topright",border = "", lty = 1, seg.len = 3, bty = "n", col=c("blue","red","black"),legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))     
      plot(Time,Global_reactive_power, ylab = "Global Reactive Power", xlab="datetime", type="l")
 })
 

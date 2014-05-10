@@ -21,7 +21,7 @@ with(data, plot(Time,Sub_metering_1, xlab = "", ylab = "Energy sub metering", co
 with(data, points(Time,Sub_metering_2, col="red", type="l"))
 with(data, points(Time,Sub_metering_3, col="blue", type="l"))
 # Add legend with the required parameters
-legend("topright",pch = "-", seg.len = 5, col=c("blue","red","black"),legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
+legend("topright",lty = 1, seg.len = 3, col=c("blue","red","black"),legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"))
 
 # Export into a 480x480 png file
 dev.copy(png,"Plot3.png", width=480, height=480)
